@@ -1,3 +1,5 @@
+import {AngularFireModule} from 'angularfire2';
+import { AuthProvider } from './../providers/auth/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -14,7 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { DatabaseProvider } from '../providers/database/database';
 import { ImageProvider } from '../providers/image/image';
 import { PreloaderProvider } from '../providers/preloader/preloader';
-import {AngularFireModule} from 'angularfire2';
+import {  AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {AngularFireModule} from 'angularfire2';
     Image,
     DatabaseProvider,
     ImageProvider,
-    PreloaderProvider
+    PreloaderProvider,AngularFireAuth,
+    AuthProvider
   ]
 })
 export class AppModule {}

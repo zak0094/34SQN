@@ -6,7 +6,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
 
 
-@IonicPage()
+@IonicPage(
+    {
+        name:'modal'
+    }
+)
 @Component({
   selector: 'page-modals',
   templateUrl: 'modals.html'
@@ -82,7 +86,7 @@ export class Modals {
       let title	             : string	= this.form.controls["name"].value,
           summary            : string 	= this.form.controls["summary"].value,
           flightRating       : number	= this.form.controls["flightRating"].value,
-          type               : any       = this.form.controls["type"].value,
+          type               : any      = this.form.controls["type"].value,
           crew               : any	    = this.form.controls["crew"].value,
           duration           : string	= this.form.controls["duration"].value,
           year               : string	= this.form.controls["year"].value,

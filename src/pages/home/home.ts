@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, Platform } from 'ionic-angular';
-import {  AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase,  FirebaseListObservable} from 'angularfire2/database';
 //import { AngularFireModule } from 'angularfire2';
 import 'rxjs/add/operator/map';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'page-home',
@@ -43,7 +43,7 @@ export class HomePage {
 
 
 
-   editMovie(flights)
+   editFlight(flights)
    {
       let params = { flights: flights, isEdited: true },
           modal  = this.modalCtrl.create('Modals', params);
@@ -53,7 +53,7 @@ export class HomePage {
 
 
 
-   deleteMovie(movie : any)
+   deleteFlight(movie : any)
    {
       this.Flight.remove(movie);
    }
