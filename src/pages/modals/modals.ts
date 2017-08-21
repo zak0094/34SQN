@@ -13,17 +13,17 @@ import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angul
 })
 export class Modals {
 
-   public form          : any;
-   public movies        : FirebaseListObservable<any[]>;
-   public movieName     : any     = '';
-   public movieGenres   : any     = [];
-   public movieDuration : any     = '';
-   public movieSummary  : any     = '';
-   public movieActors   : any     = [];
-   public movieYear     : any     = '';
-   public movieRating   : any     = '';
-   public movieId       : string  = '';
-   public isEditable    : boolean = false;
+   public form              : any;
+   public flights           : FirebaseListObservable<any[]>;
+   public pilotName         : any     = '';
+   public flighttype        : any     = [];
+   public flightDuration    : any     = '';
+   public flightSummary     : any     = '';
+   public crewpilot         : any     = [];
+   public flyYear           : any     = '';
+   public flightRaating     : any     = '';
+   public flightId          : string  = '';
+   public isEditable        : boolean = false;
 
 
    constructor(
@@ -39,36 +39,36 @@ export class Modals {
          'year' 	    : ['', Validators.maxLength(4)],
          'name'         : ['', Validators.required],
          'duration'	    : ['', Validators.required],
-         'rating'	    : ['', Validators.required],
-         'genres' 	    : ['', Validators.required],
-         'actors' 	    : ['', Validators.required]
+         'flightRating'	    : ['', Validators.required],
+         'type' 	    : ['', Validators.required],
+         'crew' 	    : ['', Validators.required]
       });
 
-      this.movies = this._FIRE.list('/films');
+      this.flights = this._FIRE.list('/flights');
 
 
       if(params.get('isEdited'))
       {
-          let movie 		= params.get('movie'),
+          let flight 		= params.get('flight'),
               k;
 
-          this.movieName        = movie.title;
-          this.movieDuration	= movie.duration;
-          this.movieSummary     = movie.summary;
-          this.movieRating   	= movie.rating;
-          this.movieYear    	= movie.year;
-          this.movieId          = movie.$key;
+          this.pilotName        = flight.title;
+          this.flightDuration	= flight.duration;
+          this.flightSummary    = flight.summary;
+          this.flightRaating   	= flight.rating;
+          this.flyYear    	    = flight.year;
+          this.flightId         = flight.$key;
 
 
-          for(k in movie.genres)
+          for(k in flight.type)
           {
-             this.movieGenres.push(movie.genres[k].name);
+             this.flighttype.push(flight.type[k].name);
           }
 
 
-          for(k in movie.actors)
+          for(k in flight.crew)
           {
-             this.movieActors.push(movie.actors[k].name);
+             this.crewpilot.push(flight.crew[k].name);
           }
 
           this.isEditable      = true;
@@ -77,57 +77,57 @@ export class Modals {
 
 
 
-   saveMovie(val)
+   saveMovie(value)
    {
-      let title	    : string	= this.form.controls["name"].value,
-          summary   : string 	= this.form.controls["summary"].value,
-          rating    : number	= this.form.controls["rating"].value,
-          genres    : any       = this.form.controls["genres"].value,
-          actors    : any	    = this.form.controls["actors"].value,
-          duration  : string	= this.form.controls["duration"].value,
-          year      : string	= this.form.controls["year"].value,
-          types     : any       = [],
-  	      people    : any       = [],
-  	      k         : any;
+      let title	             : string	= this.form.controls["name"].value,
+          summary            : string 	= this.form.controls["summary"].value,
+          flightRating       : number	= this.form.controls["flightRating"].value,
+          type               : any       = this.form.controls["type"].value,
+          crew               : any	    = this.form.controls["crew"].value,
+          duration           : string	= this.form.controls["duration"].value,
+          year               : string	= this.form.controls["year"].value,
+          typesofFlight      : any       = [],
+  	      people             : any       = [],
+  	      k                  : any;
 
 
-    for(k in genres)
+    for(k in type)
     {
-       types.push({
-          "name" : genres[k]
+       typesofFlight.push({
+          "name" : type[k]
        });
     }
 
 
-    for(k in actors)
+    for(k in crew)
     {
        people.push({
-          "name" : actors[k]
+          "name" : crew[k]
        });
     }
 
 
    if(this.isEditable)
    {
-      this.movies.update(this.movieId, {
-         title    : title,
+      this.flights.update(this.flightId, {
+         pilot    : title,
          summary  : summary,
-         rating   : rating,
+         flightRating   : flightRating,
          duration : duration,
-         genres   : types,
-         actors   : people,
+         type  : typesofFlight,
+         crew   : people,
          year     : year
       });
    }
    else
    {
-      this.movies.push({
+      this.flights.push({
          title    : title,
          summary  : summary,
-         rating   : rating,
+         flightRating   : flightRating,
          duration : duration,
-         genres   : types,
-         actors   : people,
+         type   : typesofFlight,
+         crew   : people,
          year     : year
       });
    }

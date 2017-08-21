@@ -11,7 +11,7 @@ import * as firebase from 'firebase';
 })
 export class HomePage {
 
-   public movies    : FirebaseListObservable<any[]>;
+   public Flight   : FirebaseListObservable<any[]>;
 
 
    constructor(public navCtrl    : NavController,
@@ -29,7 +29,7 @@ export class HomePage {
       this.platform.ready()
       .then(() =>
       {
-         this.movies = this.angFire.list('/films');
+         this.Flight= this.angFire.list('/flights');
       });
    }
 
@@ -43,9 +43,9 @@ export class HomePage {
 
 
 
-   editMovie(movie)
+   editMovie(flights)
    {
-      let params = { movie: movie, isEdited: true },
+      let params = { flights: flights, isEdited: true },
           modal  = this.modalCtrl.create('Modals', params);
 
       modal.present();
@@ -55,7 +55,7 @@ export class HomePage {
 
    deleteMovie(movie : any)
    {
-      this.movies.remove(movie);
+      this.Flight.remove(movie);
    }
 
 }
