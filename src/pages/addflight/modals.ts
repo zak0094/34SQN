@@ -126,7 +126,7 @@ export class Modals {
    else
    {
       this.flights.push({
-         title    : title,
+         pilot   : title,
          summary  : summary,
          flightRating   : flightRating,
          duration : duration,

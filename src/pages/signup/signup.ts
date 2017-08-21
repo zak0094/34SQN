@@ -58,4 +58,7 @@ signupUser(){
     this.loading.present();
   }
 }
+back():void {
+  this.navCtrl.push('login');
+}
 }
