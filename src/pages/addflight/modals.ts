@@ -8,7 +8,7 @@ import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angul
 
 @IonicPage(
     {
-        name:'modal'
+        name:'Modals'
     }
 )
 @Component({
