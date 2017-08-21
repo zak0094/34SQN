@@ -21,6 +21,10 @@ Then, to run it, cd into `34SQN` and run:
 $ ionic cordova platform add ios
 $ ionic cordova run ios
 ```
+if you want to run it on a server 
+```bash
+$ ionic serve lab
+```
 
 Substitute ios for android if not on a Mac.
 
