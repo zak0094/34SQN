@@ -1,11 +1,20 @@
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Camera } from '@ionic-native/camera';
+import { FormsModule } from '@angular/forms';
 
-import { MyApp } from './app.component';
+import { MyApp, firebaseConfig } from './app.component';
 import { HomePage } from '../pages/home/home';
+
+import { DatabaseProvider } from '../providers/database/database';
+import { ImageProvider } from '../providers/image/image';
+import { PreloaderProvider } from '../providers/preloader/preloader';
+import {AngularFireModule} from 'angularfire2';
 
 @NgModule({
   declarations: [
@@ -14,7 +23,10 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,7 +36,12 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Image,
+    DatabaseProvider,
+    ImageProvider,
+    PreloaderProvider
   ]
 })
 export class AppModule {}
