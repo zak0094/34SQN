@@ -43,9 +43,9 @@ export class HomePage {
 
 
 
-   editFlight(flights)
+   editFlight(flight)
    {
-      let params = { flights: flights, isEdited: true },
+      let params = { flight: flight, isEdited: true },
           modal  = this.modalCtrl.create('Modals', params);
 
       modal.present();

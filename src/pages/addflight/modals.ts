@@ -114,7 +114,7 @@ export class Modals {
    if(this.isEditable)
    {
       this.flights.update(this.flightId, {
-         pilot    : title,
+         title    : title,
          summary  : summary,
          flightRating   : flightRating,
          duration : duration,
@@ -126,7 +126,7 @@ export class Modals {
    else
    {
       this.flights.push({
-         pilot   : title,
+       title   : title,
          summary  : summary,
          flightRating   : flightRating,
          duration : duration,
