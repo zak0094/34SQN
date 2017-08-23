@@ -40,7 +40,7 @@ export class Modals {
    {
       this.form 	    = _FB.group({
          'summary' 	    : ['', Validators.minLength(10)],
-         'year' 	    : ['', Validators.maxLength(4)],
+         'year' 	    : ['', Validators.required],
          'name'         : ['', Validators.required],
          'duration'	    : ['', Validators.required],
          'flightRating'	    : ['', Validators.required],
@@ -56,7 +56,7 @@ export class Modals {
           let flight 		= params.get('flight'),
               k;
 
-          this.pilotName        = flight.title;
+          this.pilotName        = flight.name;
           this.flightDuration	= flight.duration;
           this.flightSummary    = flight.summary;
           this.flightRaating   	= flight.rating;
