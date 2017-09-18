@@ -41,16 +41,12 @@ export class HomePage {
       modal.present();
    }
 
-<<<<<<< HEAD
    logout() { 
     let nav = this.navCtrl.setRoot('login');    
   }
   search() { 
     let nav = this.navCtrl.setRoot('search');    
   }
-=======
-
->>>>>>> origin/master
 
    editFlight(flight)
    {
@@ -59,7 +55,6 @@ export class HomePage {
 
       modal.present();
    }
-<<<<<<< HEAD
    statistics(){
 
     let nav= this.navCtrl.setRoot('statistics');
@@ -68,9 +63,6 @@ export class HomePage {
   let nav= this.navCtrl.setRoot('settings');
 
 }
-=======
-
->>>>>>> origin/master
 
 
    deleteFlight(movie : any)
