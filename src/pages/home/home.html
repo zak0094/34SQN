@@ -1,5 +1,6 @@
 <ion-header>
     <ion-navbar>
+<<<<<<< HEAD
         <ion-title> 34SQN </ion-title>
         <ion-buttons right>
             <button ion-button icon-only (click)="logout()">
@@ -7,13 +8,28 @@
               </button>
         </ion-buttons>
 
+=======
+        <ion-title>
+            Air force Squadron
+        </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addRecord()">
+            <ion-icon name="add"></ion-icon>
+         </button>
+        </ion-buttons>
+>>>>>>> origin/master
     </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
     <ion-list>
+<<<<<<< HEAD
         <ion-card class="flight" text-wrap *ngFor="let flight of Flight | async">
+=======
+        <ion-card class="movie" text-wrap *ngFor="let flight of Flight | async">
+>>>>>>> origin/master
             <ion-item>
                 <h2>{{ flight.title }}</h2>
                 <small>{{ flight.date }} ({{ flight.duration }})</small>
@@ -27,7 +43,11 @@
 
 
                 <section class="multiples">
+<<<<<<< HEAD
                     <h3>flight type</h3>
+=======
+                    <h3>Genres</h3>
+>>>>>>> origin/master
                     <ion-chip *ngFor="let type of flight.type" padding-left padding-right margin-right>{{ type.name }}</ion-chip>
                 </section>
 
@@ -42,6 +62,7 @@
         </ion-card>
     </ion-list>
 
+<<<<<<< HEAD
     <ion-grid right> </ion-grid>
     <button ion-button right block royal="primary" (click)="addRecord()">
         add Flight
@@ -63,3 +84,6 @@
         <ion-title>Footer</ion-title>
     </ion-toolbar>
 </ion-footer>
+=======
+</ion-content>
+>>>>>>> origin/master
