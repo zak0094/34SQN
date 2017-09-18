@@ -1,0 +1,38 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>search</ion-title>
+        <ion-buttons left>
+            <button ion-button icon-only (click)="goBack()">
+    <ion-icon name="arrow-back"></ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-select [(ngModel)]="gaming">
+                <ion-option value="nes">name from databse</ion-option>
+                <ion-option value="n64">quries</ion-option>
+                <ion-option value="ps">list of names </ion-option>
+                <ion-option value="genesis">all names </ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>logbook</ion-label>
+            <ion-select [(ngModel)]="logbook">
+                <ion-option aria-placeholder=" ">details</ion-option>
+
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+
+
+</ion-content>
