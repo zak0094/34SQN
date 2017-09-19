@@ -14,12 +14,12 @@
 <ion-content padding>
     <ion-list>
         <ion-item>
-            <ion-label>Name</ion-label>
-            <ion-select [(ngModel)]="gaming">
-                <ion-option value="nes">name from databse</ion-option>
-                <ion-option value="n64">quries</ion-option>
-                <ion-option value="ps">list of names </ion-option>
-                <ion-option value="genesis">all names </ion-option>
+            <ion-label>search</ion-label>
+            <ion-select [(ngModel)]="title" (ionChange)="search(title)">
+                <ion-option>
+                    <ion-input placeholder="name"></ion-input>
+                </ion-option>
+                <ion-option value="any">quries</ion-option>
             </ion-select>
         </ion-item>
     </ion-list>
